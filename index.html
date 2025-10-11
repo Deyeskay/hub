@@ -162,18 +162,18 @@
   <script>
     // --- Demo data (add images/urls later) ---
 const DATA = [
-  { title:'headsup', desc:'Headsup charades.', tag:['all','games'], url:'https://deyeskay.github.io/headsup', img:'' },
-  { title:'warewolves', desc:'Wolves vs villagers peer-to-peer web game.', tag:['all','games'], url:'https://deyeskay.github.io/warewolves', img:'' },
-  { title:'pivotdoc', desc:'Excel-style pivot viewer for Android.', tag:['all','apps'], url:'https://deyeskay.github.io/pivotdoc', img:'' },
+  { title:'headsup', desc:'Headsup charades.', tag:['all','games'], url:'https://deyeskay.github.io/headsup', img:'https://user-gen-media-assets.s3.amazonaws.com/seedream_images/f550a8a9-7665-4144-bef0-ea34dee06aef.png' },
+  { title:'warewolves', desc:'Wolves vs villagers peer-to-peer web game.', tag:['all','games'], url:'https://deyeskay.github.io/warewolves', img:'https://teambuilding.com/blog/wp-content/uploads/2022/04/werewolf-rules.jpg' },
+  { title:'pivotdoc', desc:'Excel-style pivot viewer for Android.', tag:['all','apps'], url:'https://deyeskay.github.io/pivotdoc', img:'https://previews.123rf.com/images/eugenebsov/eugenebsov2110/eugenebsov211000266/176168772-modern-flat-design-of-logo-xls-file-icon-document-type.jpg' },
   { title:'MultiplayerWordGame', desc:'Real-time multiplayer word/guessing game.', tag:['all','games'], url:'https://deyeskay.github.io/MultiplayerWordGame', img:'' },
-  { title:'ColorGame', desc:'Two-player color matching game.', tag:['all','games'], url:'https://deyeskay.github.io/ColorGame', img:'' },
-  { title:'bettingapp', desc:'Virtual betting demo web app.', tag:['all','apps'], url:'https://deyeskay.github.io/bettingapp', img:'' },
+  { title:'ColorGame', desc:'Two-player color matching game.', tag:['all','games'], url:'https://deyeskay.github.io/ColorGame', img:'https://user-gen-media-assets.s3.amazonaws.com/seedream_images/3098dd3c-2699-41f5-a1f7-4a434f23d4fd.png' },
+  { title:'bettingapp', desc:'Virtual betting demo web app.', tag:['all','apps'], url:'https://deyeskay.github.io/bettingapp', img:'https://user-gen-media-assets.s3.amazonaws.com/seedream_images/21cb686e-0ad0-46c2-9f96-933a5ff9a930.png' },
   { title:'firebaseCrudOperations', desc:'Firebase CRUD starter (create/read/update/delete).', tag:['all','apps'], url:'https://deyeskay.github.io/firebaseCrudOperations', img:'' },
-  { title:'rrrgame', desc:'RRR game donation page.', tag:['all','games'], url:'https://deyeskay.github.io/rrrgame', img:'' },
+  { title:'rrrgame', desc:'RRR game donation page.', tag:['all','games'], url:'https://deyeskay.github.io/rrrgame', img:'https://images.sftcdn.net/images/t_app-cover-s,f_auto/p/3f88e1d7-2ae3-4ff0-bbf6-8a8e7dab6cc7/993910876/rrr-the-game-ride-race-rescue-screenshot' },
   { title:'Deyeskay.github.io', desc:'Personal site / landing.', tag:['all','apps'], url:'https://deyeskay.github.io/', img:'' },
   { title:'skgames', desc:'“Purely Gaming N Tech” site.', tag:['all','apps'], url:'https://deyeskay.github.io/skgames', img:'' },
-  { title:'Untouched', desc:'Action-adventure game (Forbidden Ruins series).', tag:['all','games'], url:'https://deyeskay.github.io/Untouched', img:'' },
-  { title:'boredape', desc:'Bored Apes Meta Game.', tag:['all','games'], url:"https://deyeskay.github.io/boredape", img:'' }
+  { title:'Untouched', desc:'Action-adventure game (Forbidden Ruins series).', tag:['all','games'], url:'https://deyeskay.github.io/Untouched', img:'https://deyeskay.github.io/Untouched/images/Screenshot_2.jpg' },
+  { title:'boredape', desc:'Bored Apes Meta Game.', tag:['all','games'], url:"https://deyeskay.github.io/boredape", img:'https://upload.wikimedia.org/wikipedia/en/c/c4/Various_Bored_Ape.jpg' }
 ];
 
 
@@ -193,7 +193,8 @@ const DATA = [
 
     function cardTemplate(item){
       const isFav = favorites.has(item.title);
-      const img = item.img ? `<img src="${item.img}" alt="${item.title}">` : '';
+      const img = item.img  ? `<img loading="lazy" decoding="async" src="${item.img}" alt="${item.title} cover">`  : '';
+
       return `
       <article class="card" data-title="${item.title.toLowerCase()}" data-tag="${(item.tag||['all']).join(',')}">
         <div class="cover">
