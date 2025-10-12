@@ -150,10 +150,13 @@ select{
 .cover img{position:absolute; inset:0; width:100%; height:100%; object-fit:cover; border-bottom:1px solid #20212a}
 .badge{position:absolute; top:10px; left:10px; padding:4px 8px; border-radius:999px; font-size:12px; background:#111; color:var(--accent); border:1px solid #2d3650}
 .favbtn{
+  z-index: 5; 
   position:absolute; top:10px; right:10px; width:36px; height:36px;
   display:grid; place-items:center; border-radius:999px; border:1px solid #2a2a33;
   background:#0f1016; cursor:pointer; touch-action:manipulation;
 }
+.favbtn svg, 
+.favbtn svg * { pointer-events: none; }
 .favbtn svg{fill:#0000; stroke:#d7daff; opacity:.9}
 .favbtn.active{border-color:#3a3f66; background:#12172a}
 .favbtn.active svg{fill:#ffdb5a; stroke:#ffdb5a; opacity:1}
@@ -311,13 +314,59 @@ dialog::backdrop{background:rgba(0,0,0,.7); backdrop-filter:blur(2px)}
   /* Hide the original pill style if any remained in the action row */
   @supports (grid-template-columns: subgrid) { } /* (placeholder to keep patch minimal) */
 }
+	/* Hide the favorite Badge in list view */
+	body[data-view="list"] .badge { display:none !important; }
 
+/*Logo*/
+/* Brand: left of search on all screens */
+.brand{
+  grid-area: brand;
+  display:inline-flex; align-items:center; gap:8px;
+  padding:4px 0;
+}
+.brand img{
+margin-left: -5px;
+  height:60px; width:auto; display:block;
+  filter: drop-shadow(0 1px 0 rgba(0,0,0,.25));
+}
+
+/* ── Header grid: brand + actions row, then tabs, then bar ── */
+header{
+  display:grid;
+  grid-template-columns: auto 1fr auto;
+  grid-template-areas:
+    "brand actions actions"
+    "tabs  tabs    tabs"
+    "bar   bar     bar";
+}
+
+/* Your existing elements get explicit areas */
+.tabs{ grid-area: tabs; }
+.actions{ grid-area: actions; }
+.bar{ grid-area: bar; }
+
+/* Mobile reflow: brand + actions on top row (like your screenshot) */
+@media (max-width:640px){
+  header{
+    grid-template-columns: auto 1fr;
+    grid-template-areas:
+      "brand actions"
+      "tabs  tabs"
+      "bar   bar";
+    row-gap:8px;
+  } 
+}
 
   </style>
 </head>
 <body>
   <div class="wrap">
     <header>
+	
+	<a class="brand" href="/" aria-label="SK Games">
+  <img src="sk-download.svg" alt="SK Games">
+</a>
+
       <nav class="tabs" role="tablist" aria-label="Library filters">
         <div class="tab active" data-tab="all">All</div>
         <div class="tab" data-tab="favorites">Favorites</div>
