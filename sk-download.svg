@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+  <!-- dark page bg for contrast -->
+  <rect width="64" height="64" fill="#0c0c0f"></rect>
+
+  <!-- Shield: rounded top, straight sides, full-width V tip -->
+  <path fill="#ffffff" d="M20 6 H44 a8 8 0 0 1 8 8 V52 L32 60 12 52 V14 a8 8 0 0 1 8-8 Z"></path>
+
+  <!-- small black triangle notch (slightly higher) -->
+  <path d="M26 47 H38 L32 50 Z" fill="#0c0c0f"></path>
+
+  <!-- Text (tighter vertical rhythm; same width via textLength) -->
+  <g fill="#0c0c0f" font-family="Inter, Segoe UI, Roboto, system-ui" text-anchor="middle">
+    <!-- SK: bigger and a bit higher -->
+    <text x="32" y="26.2" font-size="21" font-weight="900" lengthAdjust="spacingAndGlyphs" textLength="30" letter-spacing=".2">SK</text>
+    <!-- GAMES: nudged up to reduce gap below SK -->
+    <text x="32" y="42.6" font-size="8.8" font-weight="900" lengthAdjust="spacingAndGlyphs" textLength="30" letter-spacing=".8">GAMES</text>
+  </g>
+</svg>
