@@ -261,6 +261,57 @@ dialog::backdrop{background:rgba(0,0,0,.7); backdrop-filter:blur(2px)}
 
   .bar{ grid-area: bar; }
 }
+/* ── Mobile LIST layout: 3 columns (thumb | text | action) ─────────────── */
+@media (max-width:640px){
+  body[data-view="list"] .card{
+    display:grid;
+    grid-template-columns: 110px 1fr auto;
+    grid-template-rows: auto;
+    align-items:center;
+    gap:12px;
+    padding:8px 12px;              /* give breathing room inside */
+  }
+  body[data-view="list"] .cover{
+    grid-column:1;                  /* thumb column */
+    height:72px;
+    aspect-ratio:auto;
+    border:none;
+  }
+  body[data-view="list"] .meta{
+    grid-column:2;                  /* text column */
+    padding:0;
+  }
+  body[data-view="list"] .title{ margin-bottom:2px; font-size:16px; }
+  body[data-view="list"] .desc{ display:inline; -webkit-line-clamp:unset; line-clamp:unset; }
+
+  /* Action column: only the Open button lives here */
+  body[data-view="list"] .row{
+    grid-column:3;
+    padding:0;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+  }
+  body[data-view="list"] .row .openbtn{
+    min-width:auto;                 /* avoid cropping */
+    padding:10px 14px;
+    white-space:nowrap;
+  }
+
+  /* Details becomes a tiny inline text link: “…more” */
+  body[data-view="list"] .details-link{
+    /* turn the pill button into a link-look */
+    background:none; border:none; box-shadow:none;
+    padding:0; margin-left:6px;
+    color:var(--accent); font-size:var(--fs-sm); cursor:pointer;
+  }
+  body[data-view="list"] .details-link span{ display:none; }
+  body[data-view="list"] .details-link::after{ content:"…more"; }
+
+  /* Hide the original pill style if any remained in the action row */
+  @supports (grid-template-columns: subgrid) { } /* (placeholder to keep patch minimal) */
+}
+
 
   </style>
 </head>
@@ -305,7 +356,7 @@ dialog::backdrop{background:rgba(0,0,0,.7); backdrop-filter:blur(2px)}
 
     <section id="grid" class="grid" aria-live="polite"></section>
 
-    <footer>Minimal library UI • Built with pure HTML/CSS/JS</footer>
+    <footer>From the desk of Deyeskay — Sashi Kiran’s playground of ideas</footer>
   </div>
 
   <!-- Modal for Details (title + description only) -->
@@ -351,6 +402,26 @@ const DATA = [
     const tabs = [...document.querySelectorAll('.tab')];
 
     let state = {tab:'all', q:'', view:'grid', sort:'recent'};
+function tweakMobileListLayout(){
+  const isMobile = window.innerWidth <= 640;
+  if (!(isMobile && state.view === 'list')) return;
+
+  document.querySelectorAll('.card').forEach(card => {
+    const meta = card.querySelector('.meta');
+    const row  = card.querySelector('.row');
+    const det  = card.querySelector('.detailsbtn');
+
+    if (det && meta && row) {
+      // Move Details next to the description and make it look like a text link
+      det.classList.add('details-link');
+      meta.appendChild(det);
+      // Action row keeps only the Open button
+      [...row.children].forEach(el => {
+        if (!el.classList.contains('openbtn')) el.remove();
+      });
+    }
+  });
+}
 
     function cardTemplate(item){
       const isFav = favorites.has(item.title);
@@ -392,6 +463,7 @@ const DATA = [
 
       grid.innerHTML = items.map(cardTemplate).join('');
       document.body.dataset.view = state.view;
+	  tweakMobileListLayout();
     }
 
     // --- Events ---
