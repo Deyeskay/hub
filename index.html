@@ -2,43 +2,27 @@
 <html lang="en">
 <head>
   <meta charset="utf-8" />
- <meta name="description" content="SK Games — a compact hub of web games and apps by Sashi ‘Deyeskay’ Kiran.">
-<meta property="og:title" content="SK Games — Deyeskay Hub">
-<meta property="og:description" content="A compact hub of web games and apps by Sashi ‘Deyeskay’ Kiran.">
-<meta property="og:type" content="website">
-<meta property="og:url" content="https://deyeskay.github.io/hub/">
-<meta property="og:image" content="https://deyeskay.github.io/hub/favicon.svg">
-<meta name="twitter:card" content="summary">
-
+  <meta name="description" content="SK Games — a compact hub of web games and apps by Sashi ‘Deyeskay’ Kiran.">
+  <meta property="og:title" content="SK Games — Deyeskay Hub">
+  <meta property="og:description" content="A compact hub of web games and apps by Sashi ‘Deyeskay’ Kiran.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://deyeskay.github.io/hub/">
+  <meta property="og:image" content="https://deyeskay.github.io/hub/favicon.svg">
+  <meta name="twitter:card" content="summary">
   <link rel="icon" type="image/svg+xml" href="favicon.svg">
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="theme-color" content="#0c0c0f">
   <title>Deyeskay Hub</title>
-  <style> 
-  :root{
-  --bg:#0c0c0f;
-  --elev:#121216;
-  --card:#16161b;
-  --muted:#8a8a94;
-  --text:#e9e9ef;
-  --brand:#4f8cff;
-  --accent:#b3c7ff;
-  --ring:#2a2a33;
-  --ok:#1e8e3e;
-  --ok-press:#166a2a;
-  --ok-glow: rgba(30,142,62,.25);
-  --radius:16px;
-  --space:16px;
-  --shadow:0 6px 24px rgba(0,0,0,.35);
 
-  /* Mobile-friendly type/spacing scales */
-  --fs-sm: 13px;
-  --fs-md: clamp(14px, 1.6vw + 10px, 16px);
-  --fs-lg: clamp(16px, 2vw + 10px, 18px);
-  --pad: clamp(12px, 2.2vw + 8px, 16px);
-  --gap: clamp(10px, 2vw + 6px, 18px);
+  <style>
+/* ——— your styles (unchanged from your version) ——— */
+:root{
+  --bg:#0c0c0f; --elev:#121216; --card:#16161b; --muted:#8a8a94; --text:#e9e9ef;
+  --brand:#4f8cff; --accent:#b3c7ff; --ring:#2a2a33; --ok:#1e8e3e; --ok-press:#166a2a;
+  --ok-glow: rgba(30,142,62,.25); --radius:16px; --space:16px; --shadow:0 6px 24px rgba(0,0,0,.35);
+  --fs-sm: 13px; --fs-md: clamp(14px, 1.6vw + 10px, 16px); --fs-lg: clamp(16px, 2vw + 10px, 18px);
+  --pad: clamp(12px, 2.2vw + 8px, 16px); --gap: clamp(10px, 2vw + 6px, 18px);
 }
-
 *{box-sizing:border-box}
 html,body{height:100%}
 body{
@@ -47,167 +31,72 @@ body{
   background:radial-gradient(1200px 800px at 70% -10%,#1a1a21 0%,transparent 60%), var(--bg);
   -webkit-font-smoothing:antialiased; -moz-osx-font-smoothing:grayscale;
 }
-
-/* Shell */
-.wrap{
-  max-width:1200px;
-  margin:0 auto;
-  padding: calc(var(--pad) + env(safe-area-inset-top)) clamp(12px,3vw,28px) calc(48px + env(safe-area-inset-bottom));
-}
-
-/* Sticky, blurred header */
+.wrap{max-width:1200px;margin:0 auto;padding: calc(var(--pad) + env(safe-area-inset-top)) clamp(12px,3vw,28px) calc(48px + env(safe-area-inset-bottom));}
 header{
-  display:grid;
-  grid-template-columns:1fr auto;
-  gap:12px;
-  align-items:center;
-  position:sticky; top:0; z-index:3;
-  backdrop-filter:saturate(140%) blur(8px);
-  background:linear-gradient(#0c0c0fe0,#0c0c0fd9 24%,transparent);
-  padding-block:8px 6px;
+  display:grid; grid-template-columns:1fr auto; gap:12px; align-items:center;
+  position:sticky; top:0; z-index:3; backdrop-filter:saturate(140%) blur(8px);
+  background:linear-gradient(#0c0c0fe0,#0c0c0fd9 24%,transparent); padding-block:8px 6px;
 }
-
-/* Tabs: scrollable on mobile */
-.tabs{
-  display:flex; gap:8px; align-items:center;
-  overflow:auto; overscroll-behavior-x:contain; -webkit-overflow-scrolling:touch;
-  scrollbar-width:none;
-}
+.tabs{display:flex; gap:8px; align-items:center; overflow:auto; overscroll-behavior-x:contain; -webkit-overflow-scrolling:touch; scrollbar-width:none;}
 .tabs::-webkit-scrollbar{display:none}
-.tab{
-  padding:10px 14px; border-radius:999px;
-  color:var(--muted); cursor:pointer; border:1px solid transparent; user-select:none;
-  white-space:nowrap; flex:0 0 auto;
-  background:#0f0f14;
-}
+.tab{padding:10px 14px; border-radius:999px; color:var(--muted); cursor:pointer; border:1px solid transparent; user-select:none; white-space:nowrap; flex:0 0 auto; background:#0f0f14;}
 .tab:hover{color:var(--text); background:#17171d}
-.tab.active{
-  color:#111; background:linear-gradient(180deg,#cfe0ff,#9dbbff);
-  box-shadow:0 1px 0 #0004 inset;
-}
-
-/* Actions row: collapses nicely */
+.tab.active{color:#111; background:linear-gradient(180deg,#cfe0ff,#9dbbff); box-shadow:0 1px 0 #0004 inset;}
 .actions{display:flex; gap:10px; align-items:center; justify-self:end; flex-wrap:wrap}
-
-/* Search: full-width on phones */
-.search{
-  display:flex; align-items:center; gap:8px;
-  padding:10px 14px; border-radius:999px; background:#121219; border:1px solid var(--ring);
-  min-width:min(260px, 60vw);
-}
-.search input{
-  background:transparent; border:0; outline:none; color:var(--text);
-  width:clamp(140px, 24vw, 260px);
-}
+.search{display:flex; align-items:center; gap:8px; padding:10px 14px; border-radius:999px; background:#121219; border:1px solid var(--ring); min-width:min(260px, 60vw);}
+.search input{background:transparent; border:0; outline:none; color:var(--text); width:clamp(140px, 24vw, 260px);}
 .search svg{opacity:.7}
 .search:focus-within{border-color:#2c3750; box-shadow:0 0 0 3px #4f8cff33}
-
-/* View toggles */
-.iconbtn{
-  color: var(--text);
-  width:40px; height:40px; display:grid; place-items:center;
-  border-radius:12px; border:1px solid var(--ring); background:#111117; cursor:pointer;
-}
+.iconbtn{color: var(--text); width:40px; height:40px; display:grid; place-items:center; border-radius:12px; border:1px solid var(--ring); background:#111117; cursor:pointer;}
 .iconbtn:active{transform:translateY(1px)}
 .iconbtn:hover{border-color:#334}
-
-/* Make grid/list icons match the search icon color/opacity */ 
-.iconbtn svg{ opacity:.7; }                /* same as .search svg */
-.iconbtn:hover svg,
-.iconbtn:focus-visible svg{ opacity:1; }   /* brighten on hover/focus */
-
-/* (optional) clearer focus ring for accessibility */
-.iconbtn:focus-visible{
-  outline: none;
-  box-shadow: 0 0 0 3px #4f8cff33;
-  border-color:#2c3750;
-}
-
-
-select{
-  appearance:none; background:#111117; color:#e9e9ef;
-  border:1px solid var(--ring); border-radius:12px; padding:10px 14px; cursor:pointer;
-}
-
-/* Bar */
+.iconbtn svg{ opacity:.7; }
+.iconbtn:hover svg, .iconbtn:focus-visible svg{ opacity:1; }
+.iconbtn:focus-visible{ outline:none; box-shadow: 0 0 0 3px #4f8cff33; border-color:#2c3750; }
+select{appearance:none; background:#111117; color:#e9e9ef; border:1px solid var(--ring); border-radius:12px; padding:10px 14px; cursor:pointer;}
 .bar{display:flex; justify-content:space-between; align-items:center; gap:10px; margin-top:14px; flex-wrap:wrap}
 .sort{display:flex; align-items:center; gap:10px; color:var(--muted)}
-
-/* Grid – mobile first */
 .grid{display:grid; grid-template-columns:1fr; gap:var(--gap); margin-top:var(--gap)}
 @media (min-width:520px){ .grid{grid-template-columns:repeat(2,1fr)} }
 @media (min-width:820px){ .grid{grid-template-columns:repeat(3,1fr)} }
 @media (min-width:1100px){ .grid{grid-template-columns:repeat(4,1fr)} }
-
-/* Card */
 .card{
   background:linear-gradient(180deg, #1a1b22, #14151a);
   border:1px solid #20212a; border-radius:18px; overflow:hidden; box-shadow:var(--shadow);
   display:grid; grid-template-rows:auto 1fr auto; position:relative;
   transition:border-color .2s ease, transform .15s ease;
 }
-@media (hover:hover){
-  .card:hover{transform:translateY(-3px); border-color:#2b2e3a}
-}
-
-/* Thumbnail */
-.cover{
-  background:radial-gradient(100% 60% at 30% 10%, rgba(79,140,255,.35), transparent 40%), linear-gradient(135deg, #2a2a3a, #1b1b24);
-  display:grid; place-items:center; position:relative; width:100%; aspect-ratio:16/9;
-}
+@media (hover:hover){ .card:hover{transform:translateY(-3px); border-color:#2b2e3a} }
+.cover{background:radial-gradient(100% 60% at 30% 10%, rgba(79,140,255,.35), transparent 40%), linear-gradient(135deg, #2a2a3a, #1b1b24); display:grid; place-items:center; position:relative; width:100%; aspect-ratio:16/9;}
 .cover img{position:absolute; inset:0; width:100%; height:100%; object-fit:cover; border-bottom:1px solid #20212a}
 .badge{position:absolute; top:10px; left:10px; padding:4px 8px; border-radius:999px; font-size:12px; background:#111; color:var(--accent); border:1px solid #2d3650}
 .favbtn{
-  z-index: 5; 
-  position:absolute; top:10px; right:10px; width:36px; height:36px;
+  z-index:5; position:absolute; top:10px; right:10px; width:36px; height:36px;
   display:grid; place-items:center; border-radius:999px; border:1px solid #2a2a33;
   background:#0f1016; cursor:pointer; touch-action:manipulation;
 }
-.favbtn svg, 
-.favbtn svg * { pointer-events: none; }
+.favbtn svg, .favbtn svg * { pointer-events:none; }
 .favbtn svg{fill:#0000; stroke:#d7daff; opacity:.9}
 .favbtn.active{border-color:#3a3f66; background:#12172a}
 .favbtn.active svg{fill:#ffdb5a; stroke:#ffdb5a; opacity:1}
 .thumb{width:72%; height:72%; border-radius:12px; filter:contrast(1.05) saturate(1.05);
   background:conic-gradient(from 180deg at 50% 50%, #ff8a80, #ffd180, #80d8ff, #82ffa1, #d0b0ff, #ff8a80); opacity:.09}
-
 .meta{padding:12px 14px}
 .title{text-transform:capitalize;font-weight:700; letter-spacing:.2px; font-size:var(--fs-lg)}
 .desc{color:var(--muted); font-size:var(--fs-sm); margin-top:6px; display:block; overflow:hidden; display:-webkit-box; -webkit-line-clamp:2; line-clamp:2; -webkit-box-orient:vertical}
-
-/* Row buttons – larger touch targets */
-.row{
-  display:flex; align-items:center; justify-content:space-between; gap:10px; padding:12px 14px;
-}
-.primary{
-  border:0; background:var(--ok); padding:12px 16px; border-radius:14px; cursor:pointer;
-  font-weight:700; color:#ffffff; box-shadow:0 8px 18px var(--ok-glow); touch-action:manipulation;
-  min-width:110px;
-}
+.row{display:flex; align-items:center; justify-content:space-between; gap:10px; padding:12px 14px;}
+.primary{border:0; background:var(--ok); padding:12px 16px; border-radius:14px; cursor:pointer; font-weight:700; color:#fff; box-shadow:0 8px 18px var(--ok-glow); touch-action:manipulation; min-width:110px;}
 .primary:hover{filter:brightness(1.06)}
 .primary:active{transform:translateY(1px); background:var(--ok-press)}
-
-.pill{
-  display:inline-flex; align-items:center; gap:6px; border-radius:999px; padding:10px 14px;
-  background:#101118; border:1px solid #252636; color:var(--muted); font-size:var(--fs-sm); cursor:pointer;
-  touch-action:manipulation;
-}
+.pill{display:inline-flex; align-items:center; gap:6px; border-radius:999px; padding:10px 14px; background:#101118; border:1px solid #252636; color:var(--muted); font-size:var(--fs-sm); cursor:pointer; touch-action:manipulation;}
 .pill svg{opacity:.7}
-
 .dot{width:10px; height:10px; border-radius:50%; background:var(--ok); box-shadow:0 0 0 3px rgba(30,142,62,.2)}
-
 footer{margin-top:36px; color:var(--muted); text-align:center; font-size:var(--fs-sm)}
-
-/* List view tweaks (also responsive) */
 body[data-view="list"] .grid{grid-template-columns:1fr}
-body[data-view="list"] .card{
-  grid-template-columns:140px 1fr; grid-template-rows:auto auto; min-height:unset;
-}
+body[data-view="list"] .card{grid-template-columns:140px 1fr; grid-template-rows:auto auto; min-height:unset;}
 body[data-view="list"] .cover{aspect-ratio:16/10; height:auto}
 body[data-view="list"] .meta{padding:10px}
 body[data-view="list"] .row{padding:10px}
-
-/* Compact on very small phones */
 @media (max-width:420px){
   .actions{gap:8px}
   .search{min-width:0; flex:1}
@@ -216,164 +105,57 @@ body[data-view="list"] .row{padding:10px}
   .row{gap:8px}
   .title{font-size:16px}
 }
-
-/* Dialog → bottom sheet on phones */
 dialog{
   border:none; border-radius:18px; padding:0; width:min(720px, 92vw);
   background:#14151a; color:var(--text); box-shadow:0 24px 80px rgba(0,0,0,.6)
 }
 dialog::backdrop{background:rgba(0,0,0,.7); backdrop-filter:blur(2px)}
 @media (max-width:640px){
-  dialog{
-  /*height:auto; margin:auto; */
-    width:100vw; max-width:100vw; max-height:80vh;
-    border-radius:20px 20px 0 0;
-    position:fixed; left:0; right:0; bottom:0; transform:translateY(0);
-  }
+  dialog{ width:100vw; max-width:100vw; max-height:80vh; border-radius:20px 20px 0 0; position:fixed; left:0; right:0; bottom:0; transform:translateY(0); }
   dialog > div:first-child{padding:16px}
   dialog .primary, dialog .pill{padding:12px 14px}
 }
-
-/* Reduce motion for users who prefer it */
-@media (prefers-reduced-motion: reduce){
-  *{transition:none !important; animation:none !important}
-}
-/* Reflow header on phones: 
-   Row 1 = search + view toggles, Row 2 = tabs, Row 3 = sort bar */
+@media (prefers-reduced-motion: reduce){ *{transition:none !important; animation:none !important} }
 @media (max-width:640px){
   header{
-    display:grid;
-    grid-template-columns:1fr;
-    grid-template-areas:
-      "actions"
-      "tabs"
-      "bar";
-    row-gap:8px;
+    display:grid; grid-template-columns:auto 1fr;
+    grid-template-areas:"brand actions" "tabs tabs" "bar bar"; row-gap:8px;
   }
-  .actions{ 
-    grid-area: actions;
-    width:100%;
-    display:flex; 
-    align-items:center; 
-    gap:8px; 
-    flex-wrap:nowrap; 
-    justify-content:space-between;
-  }
-  .search{ flex:1; min-width:0; }         /* search expands */
-  #gridBtn, #listBtn{ flex:0 0 auto; }    /* keep buttons visible */
-
-  .tabs{
-    grid-area: tabs;
-    overflow:auto; 
-    -webkit-overflow-scrolling:touch;
-    scrollbar-width:none;
-  }
+  .actions{ grid-area:actions; width:100%; display:flex; align-items:center; gap:8px; flex-wrap:nowrap; justify-content:space-between; }
+  .search{ flex:1; min-width:0; }
+  #gridBtn, #listBtn{ flex:0 0 auto; }
+  .tabs{ grid-area:tabs; overflow:auto; -webkit-overflow-scrolling:touch; scrollbar-width:none; }
   .tabs::-webkit-scrollbar{display:none}
-
-  .bar{ grid-area: bar; }
+  .bar{ grid-area:bar; }
 }
-/* ── Mobile LIST layout: 3 columns (thumb | text | action) ─────────────── */
-@media (max-width:640px){
-  body[data-view="list"] .card{
-    display:grid;
-    grid-template-columns: 110px 1fr auto;
-    grid-template-rows: auto;
-    align-items:center;
-    gap:12px;
-    padding:8px 12px;              /* give breathing room inside */
-  }
-  body[data-view="list"] .cover{
-    grid-column:1;                  /* thumb column */
-    height:72px;
-    aspect-ratio:auto;
-    border:none;
-  }
-  body[data-view="list"] .meta{
-    grid-column:2;                  /* text column */
-    padding:0;
-  }
-  body[data-view="list"] .title{ margin-bottom:2px; font-size:16px; }
-  body[data-view="list"] .desc{ display:inline; -webkit-line-clamp:unset; line-clamp:unset; }
-
-  /* Action column: only the Open button lives here */
-  body[data-view="list"] .row{
-    grid-column:3;
-    padding:0;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-  }
-  body[data-view="list"] .row .openbtn{
-    min-width:auto;                 /* avoid cropping */
-    padding:10px 14px;
-    white-space:nowrap;
-  }
-
-  /* Details becomes a tiny inline text link: “…more” */
-  body[data-view="list"] .details-link{
-    /* turn the pill button into a link-look */
-    background:none; border:none; box-shadow:none;
-    padding:0; margin-left:6px;
-    color:var(--accent); font-size:var(--fs-sm); cursor:pointer;
-  }
-  body[data-view="list"] .details-link span{ display:none; }
-  body[data-view="list"] .details-link::after{ content:"…more"; }
-
-  /* Hide the original pill style if any remained in the action row */
-  @supports (grid-template-columns: subgrid) { } /* (placeholder to keep patch minimal) */
+body[data-view="list"] .card{
+  display:grid; grid-template-columns:110px 1fr auto; grid-template-rows:auto; align-items:center; gap:12px; padding:8px 12px;
 }
-	/* Hide the favorite Badge in list view */
-	body[data-view="list"] .badge { display:none !important; }
-
-/*Logo*/
-/* Brand: left of search on all screens */
-.brand{
-  grid-area: brand;
-  display:inline-flex; align-items:center; gap:8px;
-  padding:4px 0;
-}
-.brand img{
-margin-left: -5px;
-  height:60px; width:auto; display:block;
-  filter: drop-shadow(0 1px 0 rgba(0,0,0,.25));
-}
-
-/* ── Header grid: brand + actions row, then tabs, then bar ── */
+body[data-view="list"] .cover{ grid-column:1; height:72px; aspect-ratio:auto; border:none; }
+body[data-view="list"] .meta{ grid-column:2; padding:0; }
+body[data-view="list"] .title{ margin-bottom:2px; font-size:16px; }
+body[data-view="list"] .desc{ display:inline; -webkit-line-clamp:unset; line-clamp:unset; }
+body[data-view="list"] .row{ grid-column:3; padding:0; display:flex; align-items:center; justify-content:center; }
+body[data-view="list"] .row .openbtn{ min-width:auto; padding:10px 14px; white-space:nowrap; }
+body[data-view="list"] .details-link{ background:none; border:none; box-shadow:none; padding:0; margin-left:6px; color:var(--accent); font-size:var(--fs-sm); cursor:pointer; }
+body[data-view="list"] .details-link span{ display:none; }
+body[data-view="list"] .details-link::after{ content:"…more"; }
+.brand{grid-area: brand; display:inline-flex; align-items:center; gap:8px; padding:4px 0;}
+.brand img{margin-left: -5px; height:60px; width:auto; display:block; filter: drop-shadow(0 1px 0 rgba(0,0,0,.25));}
 header{
-  display:grid;
-  grid-template-columns: auto 1fr auto;
-  grid-template-areas:
-    "brand actions actions"
-    "tabs  tabs    tabs"
-    "bar   bar     bar";
+  display:grid; grid-template-columns:auto 1fr auto; grid-template-areas:"brand actions actions" "tabs tabs tabs" "bar bar bar";
 }
-
-/* Your existing elements get explicit areas */
-.tabs{ grid-area: tabs; }
-.actions{ grid-area: actions; }
-.bar{ grid-area: bar; }
-
-/* Mobile reflow: brand + actions on top row (like your screenshot) */
-@media (max-width:640px){
-  header{
-    grid-template-columns: auto 1fr;
-    grid-template-areas:
-      "brand actions"
-      "tabs  tabs"
-      "bar   bar";
-    row-gap:8px;
-  } 
-}
-
+.tabs{ grid-area: tabs; } .actions{ grid-area: actions; } .bar{ grid-area: bar; }
   </style>
 </head>
+
 <body>
   <div class="wrap">
     <header>
-	
-	<a class="brand" href="/" aria-label="SK Games">
-  <img src="sk-download.svg" alt="SK Games">
-</a>
+      <a class="brand" href="/" aria-label="SK Games">
+        <!-- this image is optional; remove if you don't have it locally -->
+        <img src="sk-download.svg" alt="SK Games" onerror="this.remove()">
+      </a>
 
       <nav class="tabs" role="tablist" aria-label="Library filters">
         <div class="tab active" data-tab="all">All</div>
@@ -411,13 +193,16 @@ header{
       </div>
     </header>
 
-    <section id="grid" class="grid" aria-live="polite"></section>
+    <section id="grid" class="grid" aria-live="polite">
+      <!-- status placeholder -->
+      <div id="status" style="color:#9aa3b2; padding:12px">Loading…</div>
+    </section>
 
     <footer>From the desk of Deyeskay — Sashi Kiran’s playground of ideas</footer>
   </div>
 
-  <!-- Modal for Details (title + description only) -->
-  <dialog id="detailsModal" style="border:none; border-radius:18px; padding:0; width:min(720px, 92vw); background:#14151a; color:var(--text); box-shadow:0 24px 80px rgba(0,0,0,.6)">
+  <!-- Modal -->
+  <dialog id="detailsModal">
     <div style="padding:20px; border-bottom:1px solid #23242d">
       <h3 id="mTitle" style="margin:0 0 6px; font-size:20px"></h3>
       <p id="mDesc" style="margin:0; color:var(--muted); line-height:1.6"></p>
@@ -428,179 +213,263 @@ header{
     </div>
   </dialog>
 
-  <script>
-    // --- Demo data (add images/urls later) ---
-const DATA = [
-  { title:'headsup', desc:'Headsup charades.', tag:['all','games'], url:'https://deyeskay.github.io/headsup', img:'https://user-gen-media-assets.s3.amazonaws.com/seedream_images/f550a8a9-7665-4144-bef0-ea34dee06aef.png' },
-  { title:'warewolves', desc:'Wolves vs villagers peer-to-peer web game.', tag:['all','games'], url:'https://deyeskay.github.io/warewolves', img:'https://teambuilding.com/blog/wp-content/uploads/2022/04/werewolf-rules.jpg' },
-  { title:'pivotdoc', desc:'Excel-style pivot viewer for Android.', tag:['all','apps'], url:'https://deyeskay.github.io/pivotdoc', img:'https://previews.123rf.com/images/eugenebsov/eugenebsov2110/eugenebsov211000266/176168772-modern-flat-design-of-logo-xls-file-icon-document-type.jpg' },
-  { title:'MultiplayerWordGame', desc:'Real-time multiplayer word/guessing game.', tag:['all','games'], url:'https://deyeskay.github.io/MultiplayerWordGame', img:'' },
-  { title:'ColorGame', desc:'Two-player color matching game.', tag:['all','games'], url:'https://deyeskay.github.io/ColorGame', img:'https://user-gen-media-assets.s3.amazonaws.com/seedream_images/3098dd3c-2699-41f5-a1f7-4a434f23d4fd.png' },
-  { title:'bettingapp', desc:'Virtual betting demo web app.', tag:['all','apps'], url:'https://deyeskay.github.io/bettingapp', img:'https://user-gen-media-assets.s3.amazonaws.com/seedream_images/21cb686e-0ad0-46c2-9f96-933a5ff9a930.png' },
-  { title:'firebaseCrudOperations', desc:'Firebase CRUD starter (create/read/update/delete).', tag:['all','apps'], url:'https://deyeskay.github.io/firebaseCrudOperations', img:'' },
-  { title:'rrrgame', desc:'RRR game donation page.', tag:['all','games'], url:'https://deyeskay.github.io/rrrgame', img:'https://images.sftcdn.net/images/t_app-cover-s,f_auto/p/3f88e1d7-2ae3-4ff0-bbf6-8a8e7dab6cc7/993910876/rrr-the-game-ride-race-rescue-screenshot' },
-  { title:'Deyeskay.github.io', desc:'Personal site / landing.', tag:['all','apps'], url:'https://deyeskay.github.io/', img:'' },
-  { title:'skgames', desc:'“Purely Gaming N Tech” site.', tag:['all','apps'], url:'https://deyeskay.github.io/skgames', img:'' },
-  { title:'Untouched', desc:'Action-adventure game (Forbidden Ruins series).', tag:['all','games'], url:'https://deyeskay.github.io/Untouched', img:'https://deyeskay.github.io/Untouched/images/Screenshot_2.jpg' },
-  { title:'boredape', desc:'Bored Apes Meta Game.', tag:['all','games'], url:"https://deyeskay.github.io/boredape", img:'https://upload.wikimedia.org/wikipedia/en/c/c4/Various_Bored_Ape.jpg' }
-];
+ <script>
+/* =====================  DATA + HYDRATOR  ===================== */
 
+let DATA = []; // only once
+const OWNER = 'deyeskay'; // your GitHub username
 
-    // --- Favorites persistence ---
-    const FAV_KEY = 'minimal-lib:favorites';
-    const readFavs = ()=> new Set(JSON.parse(localStorage.getItem(FAV_KEY) || '[]'));
-    const writeFavs = (set)=> localStorage.setItem(FAV_KEY, JSON.stringify([...set]));
-    let favorites = readFavs();
+function setData(arr){
+  DATA = Array.isArray(arr) ? arr : [];
+  console.log('[hub] setData →', DATA.length);
+  render();
+}
 
-    // --- Elements ---
+// Fetch all public repos for a user (follows pagination)
+async function fetchAllPublicRepos(username, token) {
+  const perPage = 100;
+  let url = `https://api.github.com/users/${encodeURIComponent(username)}/repos?type=public&per_page=${perPage}&sort=updated`;
+  const headers = { 'Accept': 'application/vnd.github+json' };
+  if (token) headers['Authorization'] = 'token ' + token.trim();
+
+  const all = [];
+  while (url) {
+    console.log('[hub] fetching', url);
+    const resp = await fetch(url, { headers });
+    if (!resp.ok) {
+      const msg = await resp.text().catch(()=>resp.statusText);
+      throw new Error(`GitHub API error ${resp.status}: ${msg}`);
+    }
+    const page = await resp.json();
+    all.push(...page);
+    const link = resp.headers.get('Link');
+    url = link && /<([^>]+)>; rel="next"/.test(link) ? RegExp.$1 : null;
+  }
+  console.log('[hub] total repos fetched:', all.length);
+  return all;
+}
+
+// Map GitHub repo -> your UI item shape
+function toHubDataShape(repos, username) {
+  return repos.map(r => {
+    const name = r.name || '';
+    const desc = r.description || '';
+    const isGame = /game/i.test(name) || /game/i.test(desc);
+    const tag = ['all', isGame ? 'games' : 'apps'];
+
+    // Prefer homepage; else guess GitHub Pages if has_pages; else repo URL
+    const homepage = (r.homepage && r.homepage.trim()) || '';
+    const pagesGuess = `https://${username}.github.io/${name}`;
+    const url = homepage || (r.has_pages ? pagesGuess : '') || r.html_url;
+
+    return {
+      title: name,
+      desc,
+      tag,
+      url,
+      img: '', // will be filled by cover hydrator
+      language: r.language || '',
+      defaultBranch: r.default_branch || 'main', // <-- needed for thumbnail.jpg
+      stars: r.stargazers_count || 0,
+      forks: r.forks_count || 0,
+      updatedAt: r.updated_at,
+      repo: r.html_url,
+      online: !r.archived && !r.disabled
+    };
+  });
+}
+
+// Hydrate DATA from GitHub then render
+async function hydrateDataFromGitHub(username, { token = '' } = {}) {
+  try {
+    const repos = await fetchAllPublicRepos(username, token);
+    const filtered = repos.filter(r => !r.fork);
+    const mapped = toHubDataShape(filtered, username);
+    console.log('[hub] mapped items →', mapped.length, mapped[0] || '(first item)');
+    setData(mapped);
+  } catch (err) {
+    console.error('Failed to load GitHub repos:', err);
     const grid = document.getElementById('grid');
-    const query = document.getElementById('query');
-    const sortSel = document.getElementById('sort');
-    const tabs = [...document.querySelectorAll('.tab')];
+    if (grid) grid.innerHTML = `<div style="color:#9aa3b2;padding:12px">Error: ${err.message||err}</div>`;
+  }
+}
 
-    let state = {tab:'all', q:'', view:'grid', sort:'recent'};
+/* =====================  COVER IMAGES (thumbnail.jpg → GitHub OG)  ===================== */
+
+// Build OpenGraph fallback (always works)
+function githubOgImage(owner, repo){
+  return `https://opengraph.githubassets.com/1/${owner}/${repo}`;
+}
+
+// Check if /thumbnail.jpg or /thumbnail.png exists on the repo’s default branch (HEAD to save bytes)
+async function checkRepoThumbnail(owner, repo, branch){
+  const exts = ['jpg', 'png'];
+  for (const ext of exts) {
+    const url = `https://raw.githubusercontent.com/${owner}/${repo}/${encodeURIComponent(branch)}/thumbnail.${ext}`;
+    try {
+      const res = await fetch(url, { method: 'HEAD' });
+      if (res.ok) return url; // return the first one that exists
+    } catch {}
+  }
+  return null;
+}
+
+
+// After rendering, assign images (prefer thumbnail.jpg, else GitHub OG)
+async function hydrateCovers(items){
+  for (const item of items) {
+    if (item.img) continue; // already set
+
+    const repo = item.title; // your title == repo name
+    const branch = item.defaultBranch || 'main';
+
+    const thumb = await checkRepoThumbnail(OWNER, repo, branch);
+    const src = thumb || githubOgImage(OWNER, repo);
+
+    // update in-memory
+    item.img = src;
+
+    // patch DOM
+    const cover = document.querySelector(`.card[data-title="${item.title.toLowerCase()}"] .cover`);
+    if (cover) {
+      let imgEl = cover.querySelector('img');
+      if (!imgEl) {
+        imgEl = document.createElement('img');
+        imgEl.loading = 'lazy';
+        imgEl.decoding = 'async';
+        imgEl.alt = `${item.title} cover`;
+        imgEl.addEventListener('error',()=>imgEl.remove());
+        cover.prepend(imgEl);
+      }
+      imgEl.src = src;
+    }
+  }
+}
+
+/* =====================  FAVORITES + RENDERER  ===================== */
+
+const FAV_KEY = 'minimal-lib:favorites';
+const readFavs = ()=> new Set(JSON.parse(localStorage.getItem(FAV_KEY) || '[]'));
+const writeFavs = (set)=> localStorage.setItem(FAV_KEY, JSON.stringify([...set]));
+let favorites = readFavs();
+
+const grid = document.getElementById('grid');
+const query = document.getElementById('query');
+const sortSel = document.getElementById('sort');
+const tabs = [...document.querySelectorAll('.tab')];
+
+let state = {tab:'all', q:'', view:'grid', sort:'recent'};
+
 function tweakMobileListLayout(){
   const isMobile = window.innerWidth <= 640;
   if (!(isMobile && state.view === 'list')) return;
-
   document.querySelectorAll('.card').forEach(card => {
     const meta = card.querySelector('.meta');
     const row  = card.querySelector('.row');
     const det  = card.querySelector('.detailsbtn');
-
     if (det && meta && row) {
-      // Move Details next to the description and make it look like a text link
       det.classList.add('details-link');
       meta.appendChild(det);
-      // Action row keeps only the Open button
-      [...row.children].forEach(el => {
-        if (!el.classList.contains('openbtn')) el.remove();
-      });
+      [...row.children].forEach(el => { if (!el.classList.contains('openbtn')) el.remove(); });
     }
   });
 }
 
-    function cardTemplate(item){
-      const isFav = favorites.has(item.title);
-      const img = item.img  ? `<img loading="lazy" decoding="async" src="${item.img}" alt="${item.title} cover">`  : '';
+function cardTemplate(item){
+  const isFav = favorites.has(item.title);
+  const img = item.img ? `<img loading="lazy" decoding="async" src="${item.img}" alt="${item.title} cover">` : '';
+  return `
+  <article class="card" data-title="${item.title.toLowerCase()}" data-tag="${(item.tag||['all']).join(',')}">
+    <div class="cover">
+      ${img}
+      ${isFav ? '<span class="badge">★ Favorite</span>' : ''}
+      <button class="favbtn ${isFav?'active':''}" data-title="${item.title}" title="Toggle favorite" aria-label="Toggle favorite">
+        <svg width="18" height="18" viewBox="0 0 24 24" stroke-width="1.8"><path d="M12 17.27 18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+      </button>
+      <div class="thumb" aria-hidden="true"></div>
+    </div>
+    <div class="meta">
+      <div class="title">${item.title}</div>
+      <div class="desc">${item.desc||''}</div>
+    </div>
+    <div class="row">
+      <button class="primary openbtn" data-url="${item.url||'#'}">Open</button>
+      <button class="pill detailsbtn" data-title="${item.title}" data-desc="${(item.desc||'').replace(/\"/g,'&quot;')}" data-url="${item.url||'#'}">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg>
+        <span>Details</span>
+      </button>
+    </div>
+  </article>`;
+}
 
-      return `
-      <article class="card" data-title="${item.title.toLowerCase()}" data-tag="${(item.tag||['all']).join(',')}">
-        <div class="cover">
-          ${img}
-          ${isFav ? '<span class="badge">★ Favorite</span>' : ''}
-          <button class="favbtn ${isFav?'active':''}" data-title="${item.title}" title="Toggle favorite" aria-label="Toggle favorite">
-            <svg width="18" height="18" viewBox="0 0 24 24" stroke-width="1.8"><path d="M12 17.27 18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
-          </button>
-          <div class="thumb" aria-hidden="true"></div>
-        </div>
-        <div class="meta">
-          <div class="title">${item.title}</div>
-          <div class="desc">${item.desc||''}</div>
-        </div>
-        <div class="row">
-          <button class="primary openbtn" data-url="${item.url||'#'}">Open</button>
-          <button class="pill detailsbtn" data-title="${item.title}" data-desc="${(item.desc||'').replace(/\"/g,'&quot;')}" data-url="${item.url||'#'}">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg>
-            <span>Details</span>
-          </button>
-        </div>
-      </article>`;
-    }
+function render(){
+  let items = (DATA || []).slice();
 
-    function render(){
-      let items = DATA.slice();
-      if(state.tab==='favorites') items = items.filter(x => favorites.has(x.title));
-      else if(state.tab!=='all') items = items.filter(x => (x.tag||[]).includes(state.tab));
+  if(state.tab==='favorites') items = items.filter(x => favorites.has(x.title));
+  else if(state.tab!=='all') items = items.filter(x => (x.tag||[]).includes(state.tab));
 
-      if(state.q){ const tokens = state.q.toLowerCase().trim().split(/\s+/).filter(Boolean); items = items.filter(x => { const hay = (x.title + ' ' + (x.desc||'')).toLowerCase(); return tokens.every(t => hay.includes(t)); }); }
-
-      if(state.sort==='az') items.sort((a,b)=>a.title.localeCompare(b.title));
-      if(state.sort==='za') items.sort((a,b)=>b.title.localeCompare(a.title));
-
-      grid.innerHTML = items.map(cardTemplate).join('');
-      document.body.dataset.view = state.view;
-	  tweakMobileListLayout();
-    }
-
-    // --- Events ---
-    query.addEventListener('input', (e)=>{ state.q = e.target.value; render(); });
-    sortSel.addEventListener('change', (e)=>{ state.sort = e.target.value; render(); });
-
-    tabs.forEach(t=>t.addEventListener('click', ()=>{
-      tabs.forEach(x=>x.classList.remove('active'));
-      t.classList.add('active');
-      state.tab = t.dataset.tab;
-      render();
-    }));
-
-    document.getElementById('gridBtn').onclick=()=>{ state.view='grid'; render(); };
-    document.getElementById('listBtn').onclick=()=>{ state.view='list'; render(); };
-
-    // Delegated clicks for Open + Favorite + Details
-    grid.addEventListener('click', (e)=>{
-      const fav = e.target.closest('.favbtn');
-      if(fav){
-        const title = fav.dataset.title;
-        if(favorites.has(title)) favorites.delete(title); else favorites.add(title);
-        writeFavs(favorites); render();
-        return;
-      }
-      const open = e.target.closest('.openbtn');
-      if(open){
-        const url = open.dataset.url || '#';
-        window.open(url, '_blank', 'noopener');
-        return;
-      }
-      const det = e.target.closest('.detailsbtn');
-      if(det){
-        const m = document.getElementById('detailsModal');
-        document.getElementById('mTitle').textContent = det.dataset.title;
-        document.getElementById('mDesc').textContent = det.dataset.desc;
-        document.getElementById('mOpen').onclick = () => {
-          window.open(det.dataset.url || '#', '_blank', 'noopener');
-        };
-        if (typeof m.showModal === 'function') {
-          m.showModal();
-        } else {
-          m.setAttribute('open','');
-        }
-      }
+  if(state.q){
+    const tokens = state.q.toLowerCase().trim().split(/\s+/).filter(Boolean);
+    items = items.filter(x => {
+      const hay = (x.title + ' ' + (x.desc||'')).toLowerCase();
+      return tokens.every(t => hay.includes(t));
     });
+  }
 
-    // Modal close handlers
-    const modal = document.getElementById('detailsModal');
-    document.addEventListener('keydown', (e)=>{ if(e.key==='Escape' && modal.open) modal.close(); });
-    document.getElementById('mCancel').onclick = ()=> modal.close();
+  if(state.sort==='az') items.sort((a,b)=>a.title.localeCompare(b.title));
+  if(state.sort==='za') items.sort((a,b)=>b.title.localeCompare(a.title));
+  // "recent" keeps fetched ordering
 
-    render();
+  console.log('[hub] render items:', items.length, '(state:', state, ')');
+  grid.innerHTML = items.map(cardTemplate).join('');
+  document.body.dataset.view = state.view;
+  tweakMobileListLayout();
 
-    // ─── Smoke tests (run in console) ───────────────────────────────────────
-    (function runSmokeTests(){
-      try {
-        console.group('%cSmoke Tests','color:#9cf');
-        // Test: render produced cards
-        const cards = () => document.querySelectorAll('.card');
-        console.assert(cards().length > 0, 'Cards should render');
-        // Test: toggle favorite does not throw
-        const favBtn = document.querySelector('.favbtn');
-        if (favBtn) {
-          favBtn.click();
-          favBtn.click();
-          console.log('✓ Favorite toggle ok');
-        }
-        // Test: open details modal (no crash)
-        const detBtn = document.querySelector('.detailsbtn');
-        if (detBtn) {
-          detBtn.click();
-          console.assert(document.getElementById('detailsModal').open === true, 'Modal should open');
-          document.getElementById('mCancel').click();
-        }
-        console.groupEnd();
-      } catch (err) {
-        console.error('Smoke test failed:', err);
-      }
-    })();
-  </script>
+  // fill covers in the background (thumbnail.jpg → GitHub OG)
+  hydrateCovers(items).catch(()=>{});
+}
+
+/* =====================  UI EVENTS  ===================== */
+
+query.addEventListener('input', (e)=>{ state.q = e.target.value; render(); });
+sortSel.addEventListener('change', (e)=>{ state.sort = e.target.value; render(); });
+tabs.forEach(t=>t.addEventListener('click', ()=>{
+  tabs.forEach(x=>x.classList.remove('active'));
+  t.classList.add('active');
+  state.tab = t.dataset.tab;
+  render();
+}));
+document.getElementById('gridBtn').onclick=()=>{ state.view='grid'; render(); };
+document.getElementById('listBtn').onclick=()=>{ state.view='list'; render(); };
+
+grid.addEventListener('click', (e)=>{
+  const fav = e.target.closest('.favbtn');
+  if(fav){
+    const title = fav.dataset.title;
+    if(favorites.has(title)) favorites.delete(title); else favorites.add(title);
+    writeFavs(favorites); render(); return;
+  }
+  const open = e.target.closest('.openbtn');
+  if(open){ window.open(open.dataset.url || '#', '_blank', 'noopener'); return; }
+  const det = e.target.closest('.detailsbtn');
+  if(det){
+    const m = document.getElementById('detailsModal');
+    document.getElementById('mTitle').textContent = det.dataset.title;
+    document.getElementById('mDesc').textContent = det.dataset.desc;
+    document.getElementById('mOpen').onclick = () => window.open(det.dataset.url || '#', '_blank', 'noopener');
+    if (typeof m.showModal === 'function') m.showModal(); else m.setAttribute('open','');
+  }
+});
+const modal = document.getElementById('detailsModal');
+document.addEventListener('keydown', (e)=>{ if(e.key==='Escape' && modal.open) modal.close(); });
+document.getElementById('mCancel').onclick = ()=> modal.close();
+
+/* =====================  BOOT  ===================== */
+
+document.addEventListener('DOMContentLoaded', () => {
+  hydrateDataFromGitHub(OWNER); // add { token: 'ghp_…' } if you hit rate limits
+});
+</script>
+
 </body>
 </html>
