@@ -279,11 +279,19 @@ function toHubDataShape(repos, username) {
   });
 }
 
+
 // Hydrate DATA from GitHub then render
 async function hydrateDataFromGitHub(username, { token = '' } = {}) {
   try {
     const repos = await fetchAllPublicRepos(username, token);
-    const filtered = repos.filter(r => !r.fork);
+
+    // 1) hide forks (optional) + 2) hide repos tagged "unlisted"
+    const filtered = repos.filter(r => {
+      const topics = Array.isArray(r.topics) ? r.topics.map(t => t.toLowerCase()) : [];
+      const isUnlisted = topics.includes('unlisted');
+      return !r.fork && !isUnlisted;
+    });
+
     const mapped = toHubDataShape(filtered, username);
     console.log('[hub] mapped items →', mapped.length, mapped[0] || '(first item)');
     setData(mapped);
@@ -293,6 +301,7 @@ async function hydrateDataFromGitHub(username, { token = '' } = {}) {
     if (grid) grid.innerHTML = `<div style="color:#9aa3b2;padding:12px">Error: ${err.message||err}</div>`;
   }
 }
+
 
 /* =====================  COVER IMAGES (thumbnail.jpg → GitHub OG)  ===================== */
 
