@@ -474,11 +474,49 @@ document.addEventListener('keydown', (e)=>{ if(e.key==='Escape' && modal.open) m
 document.getElementById('mCancel').onclick = ()=> modal.close();
 
 /* =====================  BOOT  ===================== */
-
+ 
 document.addEventListener('DOMContentLoaded', () => {
-  hydrateDataFromGitHub(OWNER); // add { token: 'ghp_…' } if you hit rate limits
+  hydrateDataFromGitHub(OWNER)
+    .catch(() => {})       // ignore errors so UI still shows
+    .finally(() => addExtras(EXTRA)); // add your hardcoded cards at the end
 });
+ 
 </script>
 
+ 
+  <script>
+// ---- EXTRA (hardcoded) CARDS ----
+// shape: [title, description, imageUrl, openUrl]
+// (optional 5th item: "games" or "apps" to set the tab; defaults to "apps")
+const EXTRA = [
+  ["Buzzer Live", "Buzzer for Fun games", "https://img.freepik.com/free-photo/side-view-fist-hitting-buzzer_23-2149943821.jpg", "https://buzzin.live", "games"],
+  //["Sketch Pad", "Lightweight drawing toy.", "https://example.com/sketch.jpg", "https://example.com/sketch", "apps"]
+];
+
+// Map extras into the same shape your UI expects and inject into DATA
+function addExtras(extras){
+  if (!Array.isArray(extras)) return;
+  const mapped = extras.map(row => {
+    const [title, desc, img, url, bucket='apps'] = row;
+    return {
+      title: String(title||'').trim(),
+      desc: String(desc||''),
+      img: String(img||''),           // if provided, cover uses this; hydrateCovers will skip since it's set
+      url: String(url||'#'),
+      tag: ['all', (bucket==='games' ? 'games' : 'apps')],
+      language: '',
+      defaultBranch: '',              // not needed for extras
+      stars: 0,
+      forks: 0,
+      updatedAt: '',
+      repo: '',
+      online: true
+    };
+  });
+  // Prepend extras so they appear first (change order if you want)
+  DATA = [...mapped, ...DATA];
+  render();
+}
+</script>
 </body>
 </html>
